@@ -5,7 +5,7 @@ body {
   line-height: 1.5;
 }
 body, .app {
-  background: white;
+  background: #dee0e2;
 }
 
 /* main page */
@@ -37,7 +37,7 @@ body, .app {
 }
 
 .bookshelf-title {
-  border-bottom: 1px solid #dedede;
+  border-bottom: 2px solid #4286f4;
 }
 .bookshelf-books {
   text-align: center;
@@ -130,7 +130,7 @@ body, .app {
   margin-top: 10px;
 }
 .book-authors {
-  color: #999;
+  color: #737477;
 }
 
 .book-top {
