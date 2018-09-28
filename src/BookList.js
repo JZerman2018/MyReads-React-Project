@@ -29,14 +29,8 @@ class BookList extends React.Component {
           <h1>MyReads: A Book Tracking App</h1>
         </div>
         <div className="list-books-content">
-        {/*Display the four different shelves in main pages with its current books*/}
-          <BookShelf 
-            key="favorites"
-            books={this.props.currentBooks.filter(book => book.shelf === "favorites")}
-            updateShelf={this.updateShelf}
-            shelfTitle="Favorites"
-            />
-          <BookShelf
+        {/*Display the three different shelves in main pages with its current books*/}
+           <BookShelf
             key="currently"
             books={this.props.currentBooks.filter(book => book.shelf === "currentlyReading")}
             updateShelf={this.updateShelf}

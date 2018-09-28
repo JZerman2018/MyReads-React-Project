@@ -100,7 +100,7 @@ this.props.updateShelf(book, shelf);
                       <option disabled>
                         Move to...
                       </option>
-                      <option value="favorites">Favorites</option>
+                      
                       <option value="currentlyReading">Currently Reading</option>
                       <option value="wantToRead">Want to Read</option>
                       <option value="read">Read</option>
