@@ -1,13 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import * as BooksAPI from "./BooksAPI";
 import "./App.css";
 import BookShelf from "./BookShelf";
 
+//import { Rating } from 'semantic-ui-react';
+//import 'semantic-ui-css/semantic.min.css';
+
 
 
 class BookList extends React.Component {
-  state = {};
+ state = {};
+
 
   //To filter the books depending on a shelf
   updateShelf = (bookId, event) => {
@@ -27,6 +31,7 @@ class BookList extends React.Component {
       <div className="list-books">
         <div className="list-books-title">
           <h1>MyReads: A Book Tracking App</h1>
+          
         </div>
         <div className="list-books-content">
         {/*Display the three different shelves in main pages with its current books*/}
@@ -46,14 +51,26 @@ class BookList extends React.Component {
             key="read"
             books={this.props.currentBooks.filter(book => book.shelf === "read")}
             updateShelf={this.updateShelf}
-            shelfTitle="Read"
-          />
-        </div>
+            shelfTitle="Read" 
+            />
+           </div>
         <div className="open-search">
           <Link to="/search">Add a book</Link>
         </div>
-      </div>
+        </div>
+     
+
     );
   }
 }
 export default BookList;
+/*
+<div class="rating">
+          this.$('.ui.rating').rating({
+            initialRating: 0,
+            maxRating: 5,
+            clearable: true,
+            onRate: function(value) {
+            console.log('value set to:' + value)
+            },
+          });*/
