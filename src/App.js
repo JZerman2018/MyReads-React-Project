@@ -11,7 +11,7 @@ import Header from './header';
 
 class BooksApp extends React.Component {
   state = {
-    books: [] // track books
+    SearchedBooks: [] // track books
   };
     /**
      * TODO: Instead of using this state variable to keep track of which page
@@ -38,7 +38,7 @@ class BooksApp extends React.Component {
   updateBookData = () => {
     BooksAPI.getAll().then(data => {
             this.setState({
-              books: data
+              SearchedBooks: data
             })
            // this.rating();
     });    
@@ -67,12 +67,12 @@ class BooksApp extends React.Component {
       <div className="app">
       <Header/>
       {/*For current app*/}
-        <Route exact path="/" render={() => <MainPage currentBooks={this.state.books} />} />
+        <Route exact path="/" render={() => <MainPage currentBooks={this.state.SearchedBooks} />} />
      {/*When the user clicks on search button*/}
         <Route
         path="/search"
         render={() =>
-        <SearchBooks updateShelf={this.updateShelf} currentBooks={this.state.books} />}/>
+        <SearchBooks updateShelf={this.updateShelf} currentBooks={this.state.SearchedBooks} />}/>
       
       </div>
       

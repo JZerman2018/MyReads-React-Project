@@ -35,7 +35,7 @@ class MainPage extends React.Component {
       <div className="list-books">
        <div className="list-books-title"></div> 
         <div className="list-books-content">
-        {/*Display the three different shelves in main pages with its current books*/}
+        {/*Display the current books on the three different shelves in main pages*/}
            <BookShelf
             key="currently"
             SearchedBooks={this.props.currentBooks.filter(book => book.shelf === "currentlyReading")}
@@ -67,4 +67,4 @@ class MainPage extends React.Component {
     );
   }
 }
-export default MainPage
+export default MainPage;

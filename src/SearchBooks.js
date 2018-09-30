@@ -13,7 +13,7 @@ class SearchBooks extends React.Component {
 
     
     query: "",
-    SearchedBooks: [],
+    SearchedBooks: []
     
     }
   }
