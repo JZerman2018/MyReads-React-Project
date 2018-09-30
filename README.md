@@ -2,7 +2,11 @@
 
 ## Overview
 
-This is a book tracking app that utilizes shelves to categorize books the user is: Currently Reading, Wants to Read, and have Read. The user can move books between shelves and search for more books to add to the categories. This App was built using [Reactjs] (https://reactjs.org/) and the starter code and API server were provided by Udacity at https://github.com/udacity/reactnd-project-myreads-starter.
+This is a book tracking app that utilizes shelves to categorize books the user is: Currently Reading, Wants to Read, and have Read. The user can move books between shelves and search for more books to add to the categories. This App was built using [Reactjs](https://reactjs.org/) and the starter code and API server were provided by Udacity at https://github.com/udacity/reactnd-project-myreads-starter.
+
+## View Live Project
+
+View the live project here: 
 
 
 ## Running this App
@@ -85,6 +89,16 @@ The backend API uses a fixed set of cached search results and is limited to a pa
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
-## Contributing
+## Acknowledgements
+
+Resources consulted during this project include walkthroughs by:
+
+* Forrest Walker at https://www.youtube.com/watch?v=bpKI3R0nf7E
+
+* Ryan Waite at https://www.youtube.com/watch?v=acJHkd6K5kI&=&feature=youtu.be
+
+* Maeva at https://www.youtube.com/watch?v=i6L2jLHV9j8
+
+
 
 
