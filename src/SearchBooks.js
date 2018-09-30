@@ -5,7 +5,7 @@ import "./App.css";
 
 //import PropTypes from 'prop-types'
 
-class BookSearch extends React.Component {
+class SearchBooks extends React.Component {
 
  constructor() {
     super();
@@ -13,16 +13,20 @@ class BookSearch extends React.Component {
 
     
     query: "",
-    books: [],
+    SearchedBooks: [],
     
     }
   }
-
- 
+/* 
+  	Update the shelf for each book, 
+  	none if the book is not on any shelf and 
+  	if the id book founds on book shelf 
+  	then set the current book shelf
+  */
 
   
-updateBookData = (books) => {
-  let newBooks = books.map(book => {
+updateBookData = (SearchedBooks) => {
+  let newBooks = SearchedBooks.map(book => {
   book.shelf = "none";
   this.props.currentBooks.forEach(book2 => {
     if (book.id === book2.id) {
@@ -32,35 +36,35 @@ updateBookData = (books) => {
   return book
 })
 this.setState({
-  books: newBooks
+  SearchedBooks: newBooks
 })
 }
 
   /* 
-  	Read the query when the user types on and display 20 books by calling search method on BookAPI.js
+  	Call search method on BookAPI.js when user types query and display books
   */
   updateTheQuery = (query) => {
     this.setState({ query: query })
-  if(query) {
-  BooksAPI.search(query).then((books) => {
-    books.length > 0 ? this.updateBookData(books):this.setState({books:[]})
-      }).catch((e)=> {
-      console.error(`The API responded with an error: ${e}`);
-    })
+    if(query) {
+      BooksAPI.search(query).then((SearchedBooks) => {
+        SearchedBooks.length > 0 ? this.updateBookData(SearchedBooks):this.setState({SearchedBooks:[]})
+      })/*.catch((e)=> {
+      console.error(`There was an error with the API: ${e}`);
+    })*/
     }
     else
-    {this.setState({books:[]})} //With any errors
+    {this.setState({SearchedBooks:[]})} //if there are any errors
   }
 
   /* 
-  	Update the shelf when book shelf changer button is clicked and the shelf changed
+  	Update the shelf when shelf changes after shelf changer button is clicked 
   */
   updateTheBooks = (book, shelf)=> {
-    let present = this.state.books;
+    let present = this.state.SearchedBooks;
     let updateToBooks = present.filter(newBooks => newBooks.id === book.id)[0];
     updateToBooks.shelf = shelf;
     this.setState({
-      books: present
+      SearchedBooks: present
     })  
 this.props.updateShelf(book, shelf);
   }
@@ -87,7 +91,7 @@ this.props.updateShelf(book, shelf);
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-          {this.state.books.filter((book) => (book.imageLinks)).map(book =>
+          {this.state.SearchedBooks.filter((book) => (book.imageLinks)).map(book =>
           <li key={book.id} className="book">
                 <div className="book-top">
                   <div
@@ -132,4 +136,4 @@ this.props.updateShelf(book, shelf);
     );
   }
 }
-export default BookSearch  
+export default SearchBooks  

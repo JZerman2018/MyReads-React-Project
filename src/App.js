@@ -2,8 +2,8 @@
 
 import React from 'react';
 import * as BooksAPI from './BooksAPI';
-import BookSearch from './BookSearch';
-import BookList from './BookList';
+import SearchBooks from './SearchBooks';
+import MainPage from './MainPage';
 import {Route} from 'react-router-dom';
 import './App.css';
 import Header from './header';
@@ -67,12 +67,12 @@ class BooksApp extends React.Component {
       <div className="app">
       <Header/>
       {/*For current app*/}
-        <Route exact path="/" render={() => <BookList currentBooks={this.state.books} />} />
+        <Route exact path="/" render={() => <MainPage currentBooks={this.state.books} />} />
      {/*When the user clicks on search button*/}
         <Route
         path="/search"
         render={() =>
-        <BookSearch updateShelf={this.updateShelf} currentBooks={this.state.books} />}/>
+        <SearchBooks updateShelf={this.updateShelf} currentBooks={this.state.books} />}/>
       
       </div>
       

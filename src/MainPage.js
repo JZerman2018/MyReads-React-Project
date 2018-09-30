@@ -11,7 +11,7 @@ import BookShelf from "./BookShelf";
 
 
 
-class BookList extends React.Component {
+class MainPage extends React.Component {
  state = {};
   
 
@@ -24,7 +24,7 @@ class BookList extends React.Component {
     book.shelf = event.target.value;
     BooksAPI.update(book, event.target.value).then(response => {
       this.setState({
-        books: currentBooks
+        SearchedBooks: currentBooks
       });
     });
   };
@@ -38,21 +38,21 @@ class BookList extends React.Component {
         {/*Display the three different shelves in main pages with its current books*/}
            <BookShelf
             key="currently"
-            books={this.props.currentBooks.filter(book => book.shelf === "currentlyReading")}
+            SearchedBooks={this.props.currentBooks.filter(book => book.shelf === "currentlyReading")}
             updateShelf={this.updateShelf}
             shelfTitle="Currently Reading"
             
           />
           <BookShelf
             key="wantToRead"
-            books={this.props.currentBooks.filter(book => book.shelf === "wantToRead")}
+            SearchedBooks={this.props.currentBooks.filter(book => book.shelf === "wantToRead")}
             updateShelf={this.updateShelf}
             shelfTitle="Want to Read"
             
           />
           <BookShelf
             key="read"
-            books={this.props.currentBooks.filter(book => book.shelf === "read")}
+            SearchedBooks={this.props.currentBooks.filter(book => book.shelf === "read")}
             updateShelf={this.updateShelf}
             shelfTitle="Read" 
                     
@@ -67,4 +67,4 @@ class BookList extends React.Component {
     );
   }
 }
-export default BookList
+export default MainPage

@@ -13,7 +13,7 @@ class BookShelf extends React.Component {
         </h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
-            {this.props.books.filter((book)=>(book.imageLinks)).map(book =>
+            {this.props.SearchedBooks.filter((book)=>(book.imageLinks)).map(book =>
               <li key={book.id} className="book">
                 <div className="book-top">
                   <div

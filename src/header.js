@@ -1,6 +1,6 @@
 import React from 'react'
 //import { Link } from 'react-router-dom'
-//import bookworm from "./images/headerbooks.svg"
+
 import headerbooks from "./images/headerbooks.svg"
 import headersbooks from "./images/headersbooks.svg"
 
