@@ -8,6 +8,7 @@ import {Route} from 'react-router-dom';
 import './App.css';
 import Header from './header';
 
+
 class BooksApp extends React.Component {
   state = {
     books: [] // track books
@@ -39,24 +40,25 @@ class BooksApp extends React.Component {
             this.setState({
               books: data
             })
+           // this.rating();
     });    
   }
 
 /*
    Function to add star rating
   */
- rating = (num, item) => {
+ /*rating = (num, item) => {
   const updatedBook = {
     ...item,
     stars: num
   }
-  const updatedBooks = this.state.myReads
+  const updatedBooks = this.state.books
   const filtered = updatedBooks.filter((el) => el.id !== updatedBook.id)
   filtered.push(updatedBook)
   this.setState({
-    myReads: filtered
+    books: filtered
   })
-}
+ }*/
 
 
 
@@ -71,7 +73,9 @@ class BooksApp extends React.Component {
         path="/search"
         render={() =>
         <BookSearch updateShelf={this.updateShelf} currentBooks={this.state.books} />}/>
+      
       </div>
+      
     );
   }
 }

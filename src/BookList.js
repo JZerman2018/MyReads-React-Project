@@ -4,7 +4,7 @@ import * as BooksAPI from "./BooksAPI";
 import "./App.css";
 import BookShelf from "./BookShelf";
 
-//import BookRating from "./BookRating";
+
 //import PropTypes from 'prop-types'
 
 //import 'semantic-ui-css/semantic.min.css';
@@ -13,6 +13,7 @@ import BookShelf from "./BookShelf";
 
 class BookList extends React.Component {
  state = {};
+  
 
 
   //To filter the books depending on a shelf
@@ -29,6 +30,7 @@ class BookList extends React.Component {
   };
 
   render() {
+    
     return (
       <div className="list-books">
        <div className="list-books-title"></div> 
@@ -46,13 +48,16 @@ class BookList extends React.Component {
             books={this.props.currentBooks.filter(book => book.shelf === "wantToRead")}
             updateShelf={this.updateShelf}
             shelfTitle="Want to Read"
+            
           />
           <BookShelf
             key="read"
             books={this.props.currentBooks.filter(book => book.shelf === "read")}
             updateShelf={this.updateShelf}
             shelfTitle="Read" 
+                    
             />
+            
            </div>
         <div className="open-search">
           <Link to="/search">Add a book</Link>
