@@ -5,7 +5,7 @@ class BookShelf extends React.Component {
   state = {};
 
   render() {
-  /* display the book in the right shelf*/
+  /* have the book display in the right shelf*/
     return (
       <div className="bookshelf">
         <h2 className="bookshelf-title">
@@ -25,7 +25,7 @@ class BookShelf extends React.Component {
                     }}
                   />
                   <div className="book-shelf-changer">
-              		{/*On change pass the book id and event*/}
+              		{/*pass the book id and event onChange*/}
                     <select value={book.shelf} onChange={event => this.props.updateShelf(book.id, event)}>
                       <option value="none" disabled>
                         Move to...
@@ -38,7 +38,7 @@ class BookShelf extends React.Component {
                     </select>
                   </div>
                 </div>
-            	{/*Display book title and author*/}
+            	{/*Display title and author of book*/}
                 <div className="book-title">
                   {book.title}
                 </div>

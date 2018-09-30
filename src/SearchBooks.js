@@ -25,10 +25,10 @@ class SearchBooks extends React.Component {
   */
 
   
-updateBookData = (SearchedBooks) => {
+updateBookInfo = (SearchedBooks) => {
   let newBooks = SearchedBooks.map(book => {
   book.shelf = "none";
-  this.props.currentBooks.forEach(book2 => {
+  this.props.current.forEach(book2 => {
     if (book.id === book2.id) {
       book.shelf = book2.shelf;
     }
@@ -47,10 +47,8 @@ this.setState({
     this.setState({ query: query })
     if(query) {
       BooksAPI.search(query).then((SearchedBooks) => {
-        SearchedBooks.length > 0 ? this.updateBookData(SearchedBooks):this.setState({SearchedBooks:[]})
-      })/*.catch((e)=> {
-      console.error(`There was an error with the API: ${e}`);
-    })*/
+        SearchedBooks.length > 0 ? this.updateBookInfo(SearchedBooks):this.setState({SearchedBooks:[]})
+      })
     }
     else
     {this.setState({SearchedBooks:[]})} //if there are any errors

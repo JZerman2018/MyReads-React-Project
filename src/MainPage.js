@@ -18,13 +18,13 @@ class MainPage extends React.Component {
 
   //To filter the books depending on a shelf
   updateShelf = (bookId, event) => {
-    //get the book on shelf from app
-    let currentBooks = this.props.currentBooks;
-    const book = currentBooks.filter(book => book.id === bookId)[0];
+    //get the book on shelf 
+    let current = this.props.current;
+    const book = current.filter(book => book.id === bookId)[0];
     book.shelf = event.target.value;
     BooksAPI.update(book, event.target.value).then(response => {
       this.setState({
-        SearchedBooks: currentBooks
+        SearchedBooks: current
       });
     });
   };
@@ -38,21 +38,21 @@ class MainPage extends React.Component {
         {/*Display the current books on the three different shelves in main pages*/}
            <BookShelf
             key="currently"
-            SearchedBooks={this.props.currentBooks.filter(book => book.shelf === "currentlyReading")}
+            SearchedBooks={this.props.current.filter(book => book.shelf === "currentlyReading")}
             updateShelf={this.updateShelf}
             shelfTitle="Currently Reading"
             
           />
           <BookShelf
             key="wantToRead"
-            SearchedBooks={this.props.currentBooks.filter(book => book.shelf === "wantToRead")}
+            SearchedBooks={this.props.current.filter(book => book.shelf === "wantToRead")}
             updateShelf={this.updateShelf}
             shelfTitle="Want to Read"
             
           />
           <BookShelf
             key="read"
-            SearchedBooks={this.props.currentBooks.filter(book => book.shelf === "read")}
+            SearchedBooks={this.props.current.filter(book => book.shelf === "read")}
             updateShelf={this.updateShelf}
             shelfTitle="Read" 
                     

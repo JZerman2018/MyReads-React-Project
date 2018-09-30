@@ -7,9 +7,9 @@ import MainPage from './MainPage';
 import {Route} from 'react-router-dom';
 import './App.css';
 import Header from './header';
+import Footer from './footer';
 
-
-class BooksApp extends React.Component {
+class App extends React.Component {
   state = {
     SearchedBooks: [] // track books
   };
@@ -24,23 +24,23 @@ class BooksApp extends React.Component {
 
  //Call BookAPI.js to retrieve all books
   componentDidMount() {
-    this.updateBookData()
+    this.updateBookInfo()
   }
  
   //To handle shelf change
   updateShelf = (book, shelf) => {
     BooksAPI.update(book, shelf).then(response => {
-      this.updateBookData()
+      this.updateBookInfo()
     })
   }
 
   //To update the book in state
-  updateBookData = () => {
+  updateBookInfo = () => {
     BooksAPI.getAll().then(data => {
             this.setState({
               SearchedBooks: data
             })
-           // this.rating();
+           
     });    
   }
 
@@ -52,13 +52,7 @@ class BooksApp extends React.Component {
     ...item,
     stars: num
   }
-  const updatedBooks = this.state.books
-  const filtered = updatedBooks.filter((el) => el.id !== updatedBook.id)
-  filtered.push(updatedBook)
-  this.setState({
-    books: filtered
-  })
- }*/
+ */
 
 
 
@@ -66,18 +60,18 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
       <Header/>
-      {/*For current app*/}
-        <Route exact path="/" render={() => <MainPage currentBooks={this.state.SearchedBooks} />} />
-     {/*When the user clicks on search button*/}
+      {/*For current books*/}
+        <Route exact path="/" render={() => <MainPage current={this.state.SearchedBooks} />} />
+     {/*When the user clicks search button*/}
         <Route
         path="/search"
         render={() =>
-        <SearchBooks updateShelf={this.updateShelf} currentBooks={this.state.SearchedBooks} />}/>
-      
+        <SearchBooks updateShelf={this.updateShelf} current={this.state.SearchedBooks} />}/>
+      <Footer/>
       </div>
       
     );
   }
 }
 
-export default BooksApp;
+export default App;
