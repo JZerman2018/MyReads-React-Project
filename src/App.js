@@ -1,4 +1,4 @@
-//https://www.youtube.com/watch?v=bpKI3R0nf7E Walkthrough with Forrest Walker
+
 
 import React from 'react';
 import * as BooksAPI from './BooksAPI';
@@ -6,6 +6,7 @@ import BookSearch from './BookSearch';
 import BookList from './BookList';
 import {Route} from 'react-router-dom';
 import './App.css';
+import Header from './header';
 
 class BooksApp extends React.Component {
   state = {
@@ -41,9 +42,28 @@ class BooksApp extends React.Component {
     });    
   }
 
+/*
+   Function to add star rating
+  */
+ rating = (num, item) => {
+  const updatedBook = {
+    ...item,
+    stars: num
+  }
+  const updatedBooks = this.state.myReads
+  const filtered = updatedBooks.filter((el) => el.id !== updatedBook.id)
+  filtered.push(updatedBook)
+  this.setState({
+    myReads: filtered
+  })
+}
+
+
+
   render() {
     return (
       <div className="app">
+      <Header/>
       {/*For current app*/}
         <Route exact path="/" render={() => <BookList currentBooks={this.state.books} />} />
      {/*When the user clicks on search button*/}

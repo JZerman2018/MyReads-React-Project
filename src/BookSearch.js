@@ -1,8 +1,9 @@
 import React from "react";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as BooksAPI from "./BooksAPI";
 import "./App.css";
 
+//import PropTypes from 'prop-types'
 
 class BookSearch extends React.Component {
 
@@ -56,7 +57,7 @@ this.setState({
   */
   updateTheBooks = (book, shelf)=> {
     let present = this.state.books;
-    let updateToBooks = present.filter(newBooks => newBooks.id === book.id) [0];
+    let updateToBooks = present.filter(newBooks => newBooks.id === book.id)[0];
     updateToBooks.shelf = shelf;
     this.setState({
       books: present
@@ -67,6 +68,7 @@ this.props.updateShelf(book, shelf);
   render() 
   {
     return (
+      
       <div className="search-books">
       
         <div className="search-books-bar">
@@ -126,6 +128,7 @@ this.props.updateShelf(book, shelf);
           </ol>
         </div>
       </div>
+      
     );
   }
 }
