@@ -4,9 +4,7 @@
 
 This is a book tracking app that utilizes shelves to categorize books the user is: Currently Reading, Wants to Read, and have Read. The user can move books between shelves and search for more books to add to the categories. This App was built using [Reactjs](https://reactjs.org/) and the starter code and API server were provided by Udacity at https://github.com/udacity/reactnd-project-myreads-starter.
 
-## View Live Project
-
-View the live project here: 
+ 
 
 
 ## Running this App
