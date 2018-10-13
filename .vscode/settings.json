@@ -8,6 +8,7 @@
         "headersbooks",
         "myreads",
         "predeploy",
-        "walkthroughs"
+        "walkthroughs",
+        "webroot"
     ]
 }
